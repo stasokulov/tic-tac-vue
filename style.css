@@ -1,0 +1,55 @@
+#tic-tac-toe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.play-field {
+    position: relative;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+}
+.cell {
+    padding: 10px;
+    border-color: #555;
+    border-width: 8px;
+    border-right-style: solid;
+    border-bottom-style: solid;
+}
+.cell:nth-child(3n) {
+    border-right: none;
+}
+.cell:nth-child(n+7) {
+    border-bottom: none;
+}
+
+.figure {
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.figure_o {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 100C22.4 100 0 77.6 0 50S22.4 0 50 0s50 22.4 50 50-22.4 50-50 50zm0-80c-16.5 0-30 13.5-30 30s13.5 30 30 30 30-13.5 30-30-13.5-30-30-30z' fill='%23f7931e'/%3E%3C/svg%3E");
+}
+.figure_x {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M67.9 46.3l29-29c3.9-3.9 4.2-10.3.4-14.2C93.4-1 86.9-1 83 2.9L53.7 32.2c-2 2-5.3 2-7.3 0l-29.1-29C13.4-.7 7-1 3.1 2.8-1 6.7-1 13.1 2.9 17.1l29.3 29.3c2 2 2 5.3 0 7.3L2.9 82.9C-1 86.8-1 93.2 2.9 97.1c2 2 4.5 2.9 7.1 2.9s5.1-1 7.1-2.9l29.3-29.3c2-2 5.3-2 7.3 0L83 97.1c2 2 4.5 2.9 7.1 2.9 2.6 0 5.1-1 7.1-2.9 3.9-3.9 3.7-10.5-.2-14.4l-29.1-29c-2.1-2.1-2.1-5.3 0-7.4z' fill='%23391e99'/%3E%3C/svg%3E");
+}
+
+.win {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: .3;
+}
+
+.win-text {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

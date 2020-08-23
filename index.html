@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang=ru>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="tic-tac-toe">
+  <div class="play-field">
+    <div class="cell"
+         v-for="(cell) in cells"
+         @click.once="catchClick(cell)"
+    >
+      <div class="figure"
+           :class="'figure_' + cell.insertedFigure"
+      ></div>
+    </div>
+    <div class="win" v-if="whoWin"></div>
+  </div>
+  <div class="win-text">
+    <span v-if="!whoWin">Сейчас ходит: {{checkWhoseMove}}</span>
+    <span v-if="whoWin">Победил: {{whoWin}}!</span>
+  </div>
+  <button class="reboot" @click="reboot">
+    Играть снова
+  </button>
+
+</div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
