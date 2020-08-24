@@ -22,8 +22,9 @@
     <div class="win" v-if="whoWin"></div>
   </div>
   <div class="win-text">
-    <span v-if="!whoWin">Сейчас ходит: {{checkWhoseMove}}</span>
-    <span v-if="whoWin">Победил: {{whoWin}}!</span>
+    <span v-if="!gameEnded">Сейчас ходит: {{checkWhoseMove}}</span>
+    <span v-if="gameEnded && whoWin">Победил: {{whoWin}}!</span>
+    <span v-if="gameEnded && !whoWin">Ничья</span>
   </div>
   <button class="reboot" @click="reboot">
     Играть снова

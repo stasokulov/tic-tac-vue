@@ -18,7 +18,7 @@ let app = new Vue({
         ],
         winLines: [],
         whoWin: '',
-        gameEnded: this.checkEnd,
+        gameEnded: false,
         players: {
             player_X: 'Игрок 1',
             player_O: 'Игрок 2'
@@ -44,27 +44,27 @@ let app = new Vue({
             this.checkWinPoints();
         },
         checkWinPoints: function () {
-            this.winPoints.forEach(item => {
-                let line = [];
-                item.forEach(cell => {
-                    line.push(this.cells[cell-1].insertedFigure);
+            this.winPoints.forEach(numCellsArray => {
+                let figureLine = [];
+                numCellsArray.forEach(numCell => {
+                    figureLine.push(this.cells[numCell-1].insertedFigure);
                 });
-                this.winLines.push(line);
-            });
-            this.checkWinLines();
-        },
-        checkWinLines: function () {
-            this.winLines.forEach(line => {
-                if(line.every(cell => cell === 'x')) {
+                if(figureLine.every(figure => figure === 'x')) {
                     this.whoWin = this.players.player_X;
+                    this.gameEnded = true;
                     return;
                 }
-                if(line.every(cell => cell === 'o')) {
+                if(figureLine.every(figure => figure === 'o')) {
                     this.whoWin = this.players.player_O;
+                    this.gameEnded = true;
                     return;
                 }
-            })
+            });
+            if(this.cells.every(cell => cell.insertedFigure)) {
+                this.gameEnded = true;
+            }
         },
+
         reboot: function () {
             window.location.reload();
         }
