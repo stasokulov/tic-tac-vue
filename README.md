@@ -1,3 +1,3 @@
-Игра "Крестики-нолики" н Vue.js
+Игра "Крестики-нолики" на Vue.js
 
 Сайт с игрой: https://stasokulov.github.io/tic-tac-vue/

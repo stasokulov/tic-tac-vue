@@ -12,14 +12,14 @@
 <div id="tic-tac-toe">
   <div class="play-field">
     <div class="cell"
-         v-for="(cell) in cells"
-         @click.once="catchClick(cell)"
+         v-for="(cell, index) in cells"
+         @click.once="catchClick(index)"
     >
       <div class="figure"
-           :class="'figure_' + cell.insertedFigure"
+           :class="'figure_' + cell"
       ></div>
     </div>
-    <div class="win" v-if="whoWin"></div>
+    <div class="win" v-if="gameEnded"></div>
   </div>
   <div class="win-text">
     <span v-if="!gameEnded">Сейчас ходит: {{checkWhoseMove}}</span>
@@ -29,10 +29,7 @@
   <button class="reboot" @click="reboot">
     Играть снова
   </button>
-
 </div>
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="script.js"></script>
