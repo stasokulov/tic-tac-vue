@@ -21,7 +21,7 @@ let app = new Vue({
         gameEnded: false,
         players: {
             player_X: 'Игрок 1',
-            player_O: 'Игрок 2'
+            player_O: 'Компьютер'
         },
         figures: {
             x: 'x',
@@ -134,41 +134,6 @@ let app = new Vue({
                     console.log('Сработала проверка на сторону');
                     this.catchClick(numCell-1);
                 }
-
-
-
-                // for(let i=0; i<this.winLines.length; i++ ) {
-                //
-                //     let numCell = this.checkOO(this.winLines[i]);
-                //     if (numCell) {
-                //         console.log('Сработала проверка на победу');
-                //         this.catchClick(numCell-1);
-                //         return
-                //     }
-                //
-                //     numCell = this.checkXX(this.winLines[i]);
-                //     if (numCell) {
-                //         console.log('Сработала проверка на спасение');
-                //         this.catchClick(numCell-1);
-                //         return
-                //     }
-                //
-                //     numCell = 5;
-                //     if(this.cells[numCell-1] === '') {
-                //         console.log('Сработала проверка на центр');
-                //         this.catchClick(numCell-1);
-                //         return
-                //     }
-                //
-                //     numCell = this.checkO__(this.winLines[i]);
-                //     if (numCell) {
-                //         console.log('Сработала проверка на второй О');
-                //         this.catchClick(numCell-1);
-                //         return
-                //     }
-                // };
-
-
             }
         },
         checkOO: function(line) {
@@ -212,7 +177,6 @@ let app = new Vue({
                 }
             }
         },
-
         howManyFigures: function (line, figure) {
             let set = [];
             line.forEach(item => {
