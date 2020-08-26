@@ -20,7 +20,7 @@ let app = new Vue({
         whoWin: '',
         gameEnded: false,
         players: {
-            player_X: 'Игрок 1',
+            player_X: 'Человек',
             player_O: 'Компьютер'
         },
         figures: {
