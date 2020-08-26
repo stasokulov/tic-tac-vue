@@ -38,13 +38,15 @@ let app = new Vue({
             }
         },
         catchClick: function (index) {
-            this.moveX
-                ?
-                this.cells[index] = this.figures.x
-                :
-                this.cells[index] = this.figures.o;
-            this.moveX = !this.moveX;
-            this.checkWinPoints();
+            if(this.cells[index] === '') {
+                this.moveX
+                    ?
+                    this.cells[index] = this.figures.x
+                    :
+                    this.cells[index] = this.figures.o;
+                this.moveX = !this.moveX;
+                this.checkWinPoints();
+            }
         },
         checkWinPoints: function () {
             this.winLines = [];
