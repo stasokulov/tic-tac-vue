@@ -9,26 +9,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="tic-tac-toe">
-  <div class="play-field">
-    <div class="cell"
-         v-for="(cell, index) in cells"
-         @click="catchClick(index)"
-    >
-      <div class="figure"
-           :class="'figure_' + cell"
-      ></div>
+<div class="main_wrapper">
+  <div id="tic-tac-toe">
+    <div class="play-field">
+      <div class="cell"
+           v-for="(cell, index) in cells"
+           @click="catchClick(index)"
+      >
+        <div class="figure"
+             :class="'figure_' + cell"
+        ></div>
+      </div>
+      <div class="win" v-if="gameEnded"></div>
     </div>
-    <div class="win" v-if="gameEnded"></div>
+    <div class="win-text">
+      <span v-if="!gameEnded">Сейчас ходит: {{checkWhoseMove}}</span>
+      <span v-if="gameEnded && whoWin">Победил: {{whoWin}}!</span>
+      <span v-if="gameEnded && !whoWin">Ничья</span>
+    </div>
+    <button class="reboot" @click="reboot">
+      Играть снова
+    </button>
   </div>
-  <div class="win-text">
-    <span v-if="!gameEnded">Сейчас ходит: {{checkWhoseMove}}</span>
-    <span v-if="gameEnded && whoWin">Победил: {{whoWin}}!</span>
-    <span v-if="gameEnded && !whoWin">Ничья</span>
-  </div>
-  <button class="reboot" @click="reboot">
-    Играть снова
-  </button>
+  <footer>
+    <a class="linkToMyPorfolio"
+       href="https://stasokulov.github.io/frontend_developer/"
+       target="blank"
+       title="Моё портфолио и контакты"
+    >
+      Моё портфолио и контакты
+    </a>
+  </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
