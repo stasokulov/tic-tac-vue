@@ -13,7 +13,7 @@
   <div class="play-field">
     <div class="cell"
          v-for="(cell, index) in cells"
-         @click.once="catchClick(index)"
+         @click="catchClick(index)"
     >
       <div class="figure"
            :class="'figure_' + cell"

@@ -20,7 +20,7 @@ let app = new Vue({
         whoWin: '',
         gameEnded: false,
         players: {
-            player_X: 'Игрок 1',
+            player_X: 'Человек',
             player_O: 'Компьютер'
         },
         figures: {
@@ -38,13 +38,15 @@ let app = new Vue({
             }
         },
         catchClick: function (index) {
-            this.moveX
-                ?
-                this.cells[index] = this.figures.x
-                :
-                this.cells[index] = this.figures.o;
-            this.moveX = !this.moveX;
-            this.checkWinPoints();
+            if(this.cells[index] === '') {
+                this.moveX
+                    ?
+                    this.cells[index] = this.figures.x
+                    :
+                    this.cells[index] = this.figures.o;
+                this.moveX = !this.moveX;
+                this.checkWinPoints();
+            }
         },
         checkWinPoints: function () {
             this.winLines = [];
